@@ -58,6 +58,7 @@ public class PickUpController : MonoBehaviour
 
     private void Drop()
     {
+        GetComponent<Prop>()?.Explode();
         equipped = false;
         slotFull = false;
 
