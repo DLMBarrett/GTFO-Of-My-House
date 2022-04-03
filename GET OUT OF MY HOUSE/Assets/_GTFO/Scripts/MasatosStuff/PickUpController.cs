@@ -10,6 +10,7 @@ public class PickUpController : MonoBehaviour
     public BoxCollider coll;
     public Transform player, itemContainer, fpsCam;
     public Enemy enemy;
+    public GameObject text;
 
     //values for the bash anim
     static float lerpSpeed = 0.3f;
@@ -46,6 +47,11 @@ public class PickUpController : MonoBehaviour
         Vector3 distanceToPlayer = player.position - transform.position;
         if (!equipped && distanceToPlayer.magnitude <= pickUpRange && Input.GetKeyDown(KeyCode.E) && !slotFull) PickUp();
 
+        if (!equipped && distanceToPlayer.magnitude <= pickUpRange && !slotFull)
+        {
+            text.SetActive(true);
+        }
+
         //Drop if equipped and "Q" is pressed
         if (equipped && Input.GetKeyDown(KeyCode.Q)) Drop();
 
@@ -56,6 +62,7 @@ public class PickUpController : MonoBehaviour
 
     private void PickUp()
     {
+        text.SetActive(false);
         equipped = true;
         slotFull = true;
 
