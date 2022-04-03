@@ -4,21 +4,26 @@ using UnityEngine;
 
 public class FightingMode : MonoBehaviour
 {
+    public Animator startAnim;
     public bool isFighting;
     public GameObject enemy;
     public FPS playerLock; //Locks player
 
-    private bool isDodgeLeft; // Use these for A.I to tell when player dodges
-    private bool isDodgeRight; // Use these for A.I to tell when player dodges
+    float leanLeftAmount;
+    float leanRightAmount;
 
-    private bool canDodgeL;
-    private bool canDodgeR;
+    [SerializeField] private bool isDodgeLeft; // Use these for A.I to tell when player dodges
+    [SerializeField] private bool isDodgeRight; // Use these for A.I to tell when player dodges
 
-    private bool punchingLeft; //is punching L
-    private bool punchingRight; //is punching R
+    [SerializeField] private bool canDodgeL;
+    [SerializeField] private bool canDodgeR;
 
-    private bool canPunchL;
-    private bool canPunchR;
+    [SerializeField] private bool punchingLeft; //is punching L
+    [SerializeField] private bool punchingRight; //is punching R
+
+    [SerializeField] private bool canPunchL;
+    [SerializeField] private bool canPunchR;
+    private bool canOverallDoIt;
 
     public float countDownTimer;
     public float punchTimer;
@@ -81,37 +86,41 @@ public class FightingMode : MonoBehaviour
                     isDodgeRight = false;
                     countDownTimer = savedCounter;
                     StartCoroutine(ReturnRot());
-                    Debug.Log("NotFigh");
                 }
             }
 
             if (punchingLeft && punchTimer >= 0)
             {
+                startAnim.SetBool("punchLeft", true);
                 punchTimer -= Time.deltaTime;
 
                 if (punchTimer <= 0)
                 {
+                    startAnim.SetBool("punchLeft", false);
+
+                    canOverallDoIt = true;
+
+                    canPunchL = true;
                     canPunchR = true;
-                    canDodgeL = true;
-                    canDodgeR = true;
                     punchingLeft = false;
                     punchTimer = savedPunch;
-                    Debug.Log("NotFigh");
                 }
             }
 
             if (punchingRight && punchTimer >= 0)
             {
+                startAnim.SetBool("punchRight", true);
                 punchTimer -= Time.deltaTime;
 
                 if (punchTimer <= 0)
                 {
+                    startAnim.SetBool("punchRight", false);
+
                     canPunchL = true;
-                    canDodgeL = true;
-                    canDodgeR = true;
+                    canPunchR = true;
+                    canOverallDoIt = true;
                     punchingRight = false;
                     punchTimer = savedPunch;
-                    Debug.Log("NotFigh");
                 }
             }
 
@@ -124,37 +133,41 @@ public class FightingMode : MonoBehaviour
 
     private void DodgeMode()
     {
-        
 
-        if (canDodgeL)
+        if (canOverallDoIt)
         {
-            if (Input.GetKeyDown(KeyCode.A))
+            if (canDodgeL)
             {
-                if (countDownTimer >= 0)
+                if (Input.GetKeyDown(KeyCode.A))
                 {
-                    isDodgeLeft = true;
-                    canDodgeR = false;
-                    canPunchL = false;
-                    canPunchR = false;
+                    if (countDownTimer >= 0)
+                    {
+                        isDodgeLeft = true;
+                        canDodgeR = false;
+                        canDodgeL = false;
+                        canPunchL = false;
+                        canPunchR = false;
 
 
+                    }
                 }
             }
-        }
 
-        if (canDodgeR)
-        {
-            if (Input.GetKeyDown(KeyCode.D))
+            if (canDodgeR)
             {
-                if (countDownTimer >= 0)
+                if (Input.GetKeyDown(KeyCode.D))
                 {
-                    isDodgeRight = true;
-                    canDodgeL = false;
-                    canPunchL = false;
-                    canPunchR = false;
+                    if (countDownTimer >= 0)
+                    {
+                        isDodgeRight = true;
+                        canDodgeL = false;
+                        canDodgeR = false;
+                        canPunchL = false;
+                        canPunchR = false;
+
+                    }
 
                 }
-
             }
         }
 
@@ -171,8 +184,8 @@ public class FightingMode : MonoBehaviour
                 {
                     punchingLeft = true;
                     canPunchR = false;
-                    canDodgeL = false;
-                    canDodgeR = false;
+                    canPunchL = false;
+                    canOverallDoIt = false;
 
 
                 }
@@ -192,12 +205,13 @@ public class FightingMode : MonoBehaviour
                     {
                         punchingRight = true;
                         canPunchL = false;
-                        canDodgeL = false;
-                        canDodgeR = false;
+                        canPunchR = false;
+                        canOverallDoIt = false;
+
 
 
                 }
-                
+
             }
         }
     }
@@ -217,13 +231,26 @@ public class FightingMode : MonoBehaviour
             yield return null;
 
         }
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1.2f);
         canDodgeR = true;
         canDodgeL = true;
+        canPunchL = true;
+        canPunchR = true;
+
 
 
 
     }
+
+    IEnumerator PunchCD()
+    {
+        yield return new WaitForSeconds(punchTimer);
+        canDodgeR = true;
+        canDodgeL = true;
+        canPunchL = true;
+        canPunchR = true;
+    }
+
 
 
 }
