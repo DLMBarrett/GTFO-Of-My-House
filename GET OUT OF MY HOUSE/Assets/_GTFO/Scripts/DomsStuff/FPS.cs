@@ -13,10 +13,10 @@ public class FPS : MonoBehaviour
 
     private Vector3 vel;
     private Vector3 playerMoveInput;
-    private Vector2 playerMouseMove;
     
     private float camXrotation;
-
+    float mouseX;
+    float mouseY;
     [SerializeField] public bool canLook;
     [SerializeField] public bool canMove;
        
@@ -31,7 +31,6 @@ public class FPS : MonoBehaviour
     {
        
             playerMoveInput = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical"));
-            playerMouseMove = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
 
             Move();
             MouseLook();
@@ -67,12 +66,17 @@ public class FPS : MonoBehaviour
     {
         if (canLook)
         {
-            camXrotation -= playerMouseMove.y * mouseSen;
+            float mouseX = Input.GetAxis("Mouse X") * mouseSen * Time.deltaTime;
+            float mouseY = Input.GetAxis("Mouse Y") * mouseSen * Time.deltaTime;
+
+            camXrotation -= mouseY;
+            
+           
 
             camXrotation = Mathf.Clamp(camXrotation, -90, 90);
 
-            transform.Rotate(0f, playerMouseMove.x, 0f);
             playerCam.localRotation = Quaternion.Euler(camXrotation, 0f, 0f);
+            transform.Rotate(Vector3.up * mouseX);
         }
 
     }
