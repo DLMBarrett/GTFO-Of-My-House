@@ -46,7 +46,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: ref_123
   clip: {fileID: 8300000, guid: 8831a83f7b3b72f4e9121421984e6b85, type: 3}
-  source: {fileID: 6567390314519014661}
+  mixGroup: {fileID: -4535167240400903323, guid: 57f6e5699a9bad643add782d7e8d37a0, type: 2}
+  loop: 0
+  source: {fileID: 0}
 --- !u!82 &6567390314519014661
 AudioSource:
   m_ObjectHideFlags: 0

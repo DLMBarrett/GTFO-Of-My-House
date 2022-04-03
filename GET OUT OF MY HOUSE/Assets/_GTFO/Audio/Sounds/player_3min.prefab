@@ -46,7 +46,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: player_3min
   clip: {fileID: 8300000, guid: 7f7c333ee14f91841a7be031c3a7f0ff, type: 3}
-  source: {fileID: -2695674119490959436}
+  mixGroup: {fileID: 7430433322573508978, guid: 57f6e5699a9bad643add782d7e8d37a0, type: 2}
+  loop: 0
+  source: {fileID: 0}
 --- !u!82 &-2695674119490959436
 AudioSource:
   m_ObjectHideFlags: 0

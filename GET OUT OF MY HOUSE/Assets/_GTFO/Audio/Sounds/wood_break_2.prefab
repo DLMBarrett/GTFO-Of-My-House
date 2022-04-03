@@ -46,7 +46,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: wood_break_2
   clip: {fileID: 8300000, guid: f8f40cb3141c7b743b10eb799f9a421d, type: 3}
-  source: {fileID: -601643914497396974}
+  mixGroup: {fileID: 515534089540537032, guid: 57f6e5699a9bad643add782d7e8d37a0, type: 2}
+  loop: 0
+  source: {fileID: 0}
 --- !u!82 &-601643914497396974
 AudioSource:
   m_ObjectHideFlags: 0

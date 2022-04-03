@@ -26,7 +26,6 @@ public class PickUpController : MonoBehaviour
 
     private void Start()
     {
-        audio.Play("ref_123");
         //Setup
         if (!equipped)
         {

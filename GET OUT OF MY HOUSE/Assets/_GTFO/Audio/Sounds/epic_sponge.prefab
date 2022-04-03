@@ -46,7 +46,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: epic_sponge
   clip: {fileID: 8300000, guid: 7c0c144d5dc92004f8cf9a47ec378991, type: 3}
-  source: {fileID: 8839426812620377546}
+  mixGroup: {fileID: 7856529208192776299, guid: 57f6e5699a9bad643add782d7e8d37a0, type: 2}
+  loop: 1
+  source: {fileID: 0}
 --- !u!82 &8839426812620377546
 AudioSource:
   m_ObjectHideFlags: 0

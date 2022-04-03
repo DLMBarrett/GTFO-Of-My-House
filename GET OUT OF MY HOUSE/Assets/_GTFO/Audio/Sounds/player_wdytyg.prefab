@@ -46,7 +46,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: player_wdytyg
   clip: {fileID: 8300000, guid: dd53669c2ec9d1040b4376a19ad204e5, type: 3}
-  source: {fileID: 3052134683098252591}
+  mixGroup: {fileID: 7430433322573508978, guid: 57f6e5699a9bad643add782d7e8d37a0, type: 2}
+  loop: 0
+  source: {fileID: 0}
 --- !u!82 &3052134683098252591
 AudioSource:
   m_ObjectHideFlags: 0

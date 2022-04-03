@@ -46,7 +46,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: impact
   clip: {fileID: 8300000, guid: c62fbf5bfe1c8aa47a00a7edaf4c9f8d, type: 3}
-  source: {fileID: 136854869735041513}
+  mixGroup: {fileID: 515534089540537032, guid: 57f6e5699a9bad643add782d7e8d37a0, type: 2}
+  loop: 0
+  source: {fileID: 0}
 --- !u!82 &136854869735041513
 AudioSource:
   m_ObjectHideFlags: 0

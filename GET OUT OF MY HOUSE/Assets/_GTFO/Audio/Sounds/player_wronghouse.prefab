@@ -46,7 +46,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: player_wronghouse
   clip: {fileID: 8300000, guid: adf064d87895b9f4ba103c21d566ab55, type: 3}
-  source: {fileID: 6270957800186207995}
+  mixGroup: {fileID: 7430433322573508978, guid: 57f6e5699a9bad643add782d7e8d37a0, type: 2}
+  loop: 0
+  source: {fileID: 0}
 --- !u!82 &6270957800186207995
 AudioSource:
   m_ObjectHideFlags: 0

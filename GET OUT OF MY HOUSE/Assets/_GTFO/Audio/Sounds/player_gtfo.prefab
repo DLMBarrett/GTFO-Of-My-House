@@ -46,7 +46,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: player_gtfo
   clip: {fileID: 8300000, guid: b1a468e40545e2843a85bf7272ee4d75, type: 3}
-  source: {fileID: -7577597768618352933}
+  mixGroup: {fileID: 7430433322573508978, guid: 57f6e5699a9bad643add782d7e8d37a0, type: 2}
+  loop: 0
+  source: {fileID: 0}
 --- !u!82 &-7577597768618352933
 AudioSource:
   m_ObjectHideFlags: 0

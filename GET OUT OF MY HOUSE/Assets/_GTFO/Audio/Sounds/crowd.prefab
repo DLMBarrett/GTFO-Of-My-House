@@ -46,7 +46,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: crowd
   clip: {fileID: 8300000, guid: 4b6d5fe7da6f953419c4492b17607ecd, type: 3}
-  source: {fileID: -2019651974606054384}
+  mixGroup: {fileID: 7856529208192776299, guid: 57f6e5699a9bad643add782d7e8d37a0, type: 2}
+  loop: 0
+  source: {fileID: 0}
 --- !u!82 &-2019651974606054384
 AudioSource:
   m_ObjectHideFlags: 0

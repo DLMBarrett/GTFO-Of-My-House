@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 428037757699627561}
   - component: {fileID: -4501079984453720689}
-  - component: {fileID: 4024861227612821614}
+  - component: {fileID: 2769974445393947282}
   m_Layer: 0
-  m_Name: phone_ring
+  m_Name: sitcom_cheering 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,12 +44,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e704d1ce81490214a85803059f042b2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: phone_ring
-  clip: {fileID: 8300000, guid: f731377eeb875c94092869966da64d4b, type: 3}
-  mixGroup: {fileID: 515534089540537032, guid: 57f6e5699a9bad643add782d7e8d37a0, type: 2}
-  loop: 1
-  source: {fileID: 0}
---- !u!82 &4024861227612821614
+  name: sitcom_cheering
+  clip: {fileID: 8300000, guid: 14c394dfcdcd58449a0f8f934dcf0e61, type: 3}
+  mixGroup: {fileID: 7856529208192776299, guid: 57f6e5699a9bad643add782d7e8d37a0, type: 2}
+  loop: 0
+  source: {fileID: 2769974445393947282}
+--- !u!82 &2769974445393947282
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -58,8 +58,8 @@ AudioSource:
   m_GameObject: {fileID: 7137524517888306670}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 515534089540537032, guid: 57f6e5699a9bad643add782d7e8d37a0, type: 2}
-  m_audioClip: {fileID: 8300000, guid: f731377eeb875c94092869966da64d4b, type: 3}
+  OutputAudioMixerGroup: {fileID: 7856529208192776299, guid: 57f6e5699a9bad643add782d7e8d37a0, type: 2}
+  m_audioClip: {fileID: 8300000, guid: 14c394dfcdcd58449a0f8f934dcf0e61, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
