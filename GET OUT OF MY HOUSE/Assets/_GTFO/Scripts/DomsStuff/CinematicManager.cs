@@ -42,7 +42,7 @@ public class CinematicManager : MonoBehaviour
         endEvent = true;
     }
 
-    private void Update()
+    private void Update() // Plays events
     {
         if(isEvent1 && endEvent)
         {
