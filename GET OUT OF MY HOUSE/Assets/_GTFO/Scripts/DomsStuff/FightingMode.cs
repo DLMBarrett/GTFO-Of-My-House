@@ -43,6 +43,9 @@ public class FightingMode : MonoBehaviour
     {
         if (isFighting)
         {
+            playerLock.canLook = false;
+            playerLock.canMove = false;
+
             LeftPunch();
             RightPunch();
             DodgeMode();
@@ -121,8 +124,7 @@ public class FightingMode : MonoBehaviour
 
     private void DodgeMode()
     {
-        playerLock.canLook = false;
-        playerLock.canMove = false;
+        
 
         if (canDodgeL)
         {
