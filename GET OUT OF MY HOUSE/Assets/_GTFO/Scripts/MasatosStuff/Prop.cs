@@ -17,12 +17,17 @@ public class Prop : MonoBehaviour
 
     public void Explode()
     {
+        //for each piece of the prop,
+        //sets collider and rigidbody
+        //and removes parent
         foreach(GameObject piece in components)
         {
             piece.transform.SetParent(null);
             piece.GetComponent<Collider>().isTrigger = false;
             piece.GetComponent<Rigidbody>().isKinematic = false;
         }
-        Destroy(this);
+
+        //destroys original object
+        Destroy(this.gameObject);
     }
 }
