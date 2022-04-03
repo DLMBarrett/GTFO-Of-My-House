@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: phone_ring
   clip: {fileID: 8300000, guid: f731377eeb875c94092869966da64d4b, type: 3}
-  source: {fileID: 4024861227612821614}
+  source: {fileID: 0}
 --- !u!82 &4024861227612821614
 AudioSource:
   m_ObjectHideFlags: 0
@@ -59,9 +59,9 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 515534089540537032, guid: 57f6e5699a9bad643add782d7e8d37a0, type: 2}
   m_audioClip: {fileID: 8300000, guid: f731377eeb875c94092869966da64d4b, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.196
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

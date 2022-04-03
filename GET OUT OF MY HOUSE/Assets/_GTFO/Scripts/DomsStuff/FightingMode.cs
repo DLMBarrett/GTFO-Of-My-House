@@ -12,17 +12,17 @@ public class FightingMode : MonoBehaviour
     float leanLeftAmount;
     float leanRightAmount;
 
-    [SerializeField] private bool isDodgeLeft; // Use these for A.I to tell when player dodges
-    [SerializeField] private bool isDodgeRight; // Use these for A.I to tell when player dodges
+     private bool isDodgeLeft; // Use these for A.I to tell when player dodges
+     private bool isDodgeRight; // Use these for A.I to tell when player dodges
 
-    [SerializeField] private bool canDodgeL;
-    [SerializeField] private bool canDodgeR;
+     private bool canDodgeL;
+     private bool canDodgeR;
 
-    [SerializeField] private bool punchingLeft; //is punching L
-    [SerializeField] private bool punchingRight; //is punching R
+     private bool punchingLeft; //is punching L
+     private bool punchingRight; //is punching R
 
-    [SerializeField] private bool canPunchL;
-    [SerializeField] private bool canPunchR;
+    private bool canPunchL;
+    private bool canPunchR;
     private bool canOverallDoIt;
 
     public float countDownTimer;

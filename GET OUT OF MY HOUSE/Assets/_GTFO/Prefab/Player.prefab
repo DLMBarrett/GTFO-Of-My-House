@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 136451561}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -265,17 +265,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startAnim: {fileID: 256680987135685092}
-  isFighting: 1
+  isFighting: 0
   enemy: {fileID: 0}
   playerLock: {fileID: 26757921024883555}
-  isDodgeLeft: 0
-  isDodgeRight: 0
-  canDodgeL: 0
-  canDodgeR: 0
-  punchingLeft: 0
-  punchingRight: 0
-  canPunchL: 0
-  canPunchR: 0
   countDownTimer: 1
   punchTimer: 1
 --- !u!95 &256680987135685092
@@ -351,6 +343,10 @@ PrefabInstance:
     - target: {fileID: 3221676653865650519, guid: cb19d05c431b60a4498106d227b2c29e, type: 3}
       propertyPath: m_Name
       value: FirstPerson
+      objectReference: {fileID: 0}
+    - target: {fileID: 3221676653865650519, guid: cb19d05c431b60a4498106d227b2c29e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4071818900134863091, guid: cb19d05c431b60a4498106d227b2c29e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
