@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class HorrorEvents : MonoBehaviour
 {
-    [Header("EventType")]
-    public bool phoneRing;
-    public bool noisemaker;
+   private bool justPlayed;
 
     [Header("Objects")]
     public AudioSource playClip;
@@ -16,7 +14,12 @@ public class HorrorEvents : MonoBehaviour
     {
         if(other.tag == "Player")
         {
-            playClip.Play();
+            if(justPlayed == false)
+            {
+                playClip.Play();
+
+                justPlayed = true;
+            }
         }
     }
 

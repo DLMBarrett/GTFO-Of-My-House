@@ -38,6 +38,8 @@ public class CinematicManager : MonoBehaviour
     public Material skySwitch1;
     public Material skySwitch2;
 
+    public GameObject creepySound;
+
 
     [Header("Player Event 2: The Light")]
     
@@ -84,6 +86,8 @@ public class CinematicManager : MonoBehaviour
             if (playCutscene)
             {
                 PlayerEvent1_LookRot();
+                audioManage.Play("sting");
+
             }
         }
 
@@ -146,6 +150,7 @@ public class CinematicManager : MonoBehaviour
 
         }
 
+       
         if (countDownTimer <= 0)
         {
             audioManage.Play("glass_break");
@@ -202,7 +207,7 @@ public class CinematicManager : MonoBehaviour
             {
                 direction = (spawnEnemy.transform.position - Camera.main.transform.position).normalized;
                 lookRot = Quaternion.LookRotation(direction);
-
+                
                 Camera.main.transform.rotation = Quaternion.Lerp(Camera.main.transform.rotation, lookRot, 5 * Time.deltaTime);
 
                 Quaternion currentRotate = Camera.main.transform.rotation;
@@ -232,6 +237,8 @@ public class CinematicManager : MonoBehaviour
                         playerLocked = false;
                         
                         endEvent = false;
+
+                        creepySound.SetActive(false);
 
                         audioManage.Play("epic_sponge");
 
