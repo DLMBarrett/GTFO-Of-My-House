@@ -617,6 +617,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c23b3b2d3c43424a91046561d489deb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 0
+  damagePerPunch: 10
+--- !u!114 &1122779607541547413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1122779607541547411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a3a64b455d0db24c8e6188ae5a1a0fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currState: {fileID: 0}
 --- !u!1001 &3569074307699771502
 PrefabInstance:
   m_ObjectHideFlags: 0
