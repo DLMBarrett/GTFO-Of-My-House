@@ -5,10 +5,12 @@ using UnityEngine;
 public class IdleState : State
 {
     public float minTime = 1.0f, maxTime = 5.0f;
-    public WindupState windupState;
     public BlockState blockState;
     public StaggerState staggerState;
+    public RightWindupState rightWindupState;
+    public LeftWindupState leftWindupState;
     public bool isHit = false;
+    public Animator enemyAnimator;
     private float chosenTime;
     private float timer = 0.0f;
     public override State RunCurrentState()
@@ -26,7 +28,14 @@ public class IdleState : State
                 return staggerState;
             }
         }
-        return windupState;
+        if (Random.value < 0.5f)
+        {
+            return rightWindupState;
+        }
+        else
+        {
+            return leftWindupState;
+        }
     }
     IEnumerator Wait()
     {

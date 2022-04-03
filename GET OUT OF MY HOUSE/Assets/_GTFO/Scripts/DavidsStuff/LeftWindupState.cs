@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StaggerState : State
+public class LeftWindupState : State
 {
+    public RightAttackState attackState;
     public Animator enemyAnimator;
     public override State RunCurrentState()
     {
-        return this;
+        return attackState;
     }
 }
