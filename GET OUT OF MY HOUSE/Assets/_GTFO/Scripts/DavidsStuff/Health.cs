@@ -21,4 +21,9 @@ public class Health : MonoBehaviour
     {
         return currHealth;
     }
+
+    public void ResetHealth()
+    {
+        currHealth = maxHealth;
+    }
 }

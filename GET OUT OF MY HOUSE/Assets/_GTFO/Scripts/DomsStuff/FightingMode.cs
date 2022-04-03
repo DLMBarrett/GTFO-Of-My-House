@@ -6,20 +6,20 @@ public class FightingMode : MonoBehaviour
 {
     public Animator startAnim;
     public bool isFighting;
-    public GameObject enemy;
+    public StateManager enemy;
     public FPS playerLock; //Locks player
 
     float leanLeftAmount;
     float leanRightAmount;
 
-     private bool isDodgeLeft; // Use these for A.I to tell when player dodges
-     private bool isDodgeRight; // Use these for A.I to tell when player dodges
+     public bool isDodgeLeft; // Use these for A.I to tell when player dodges
+     public bool isDodgeRight; // Use these for A.I to tell when player dodges
 
      private bool canDodgeL;
      private bool canDodgeR;
 
-     private bool punchingLeft; //is punching L
-     private bool punchingRight; //is punching R
+     public bool punchingLeft; //is punching L
+     public bool punchingRight; //is punching R
 
     private bool canPunchL;
     private bool canPunchR;
@@ -186,8 +186,12 @@ public class FightingMode : MonoBehaviour
                     canPunchR = false;
                     canPunchL = false;
                     canOverallDoIt = false;
-
-
+                    // damage enemy
+                    if (enemy.currState.Equals(typeof(IdleState)) || enemy.currState.Equals(typeof(LeftRecoveryState))
+                        || enemy.currState.Equals(typeof(RightRecoveryState)) || enemy.currState.Equals(typeof(StaggerState)))
+                    {
+                        enemy.currState.Hit();
+                    }
                 }
 
             }
