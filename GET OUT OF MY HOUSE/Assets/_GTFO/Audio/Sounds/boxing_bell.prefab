@@ -46,7 +46,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: boxing_bell
   clip: {fileID: 8300000, guid: 5cb86bb0ac24e1d4fba5fc4d796e04d4, type: 3}
-  source: {fileID: -5074321909240782805}
+  mixGroup: {fileID: 515534089540537032, guid: 57f6e5699a9bad643add782d7e8d37a0, type: 2}
+  loop: 0
+  source: {fileID: 0}
 --- !u!82 &-5074321909240782805
 AudioSource:
   m_ObjectHideFlags: 0

@@ -46,7 +46,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: step_creak
   clip: {fileID: 8300000, guid: 24483eda2ed97f847a0d6bab48f3a24f, type: 3}
-  source: {fileID: -4588167349370699725}
+  mixGroup: {fileID: 515534089540537032, guid: 57f6e5699a9bad643add782d7e8d37a0, type: 2}
+  loop: 0
+  source: {fileID: 0}
 --- !u!82 &-4588167349370699725
 AudioSource:
   m_ObjectHideFlags: 0

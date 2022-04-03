@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LeftAttackState : State
 {
-    public RecoveryState recoveryState;
+    public LeftRecoveryState recoveryState;
     public GameObject player;
     public Animator enemyAnimator;
     public override State RunCurrentState()

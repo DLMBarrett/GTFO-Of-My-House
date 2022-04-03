@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class KnockoutState : State
 {
-    // Start is called before the first frame update
-    void Start()
+    public IdleState idleState;
+    public override State RunCurrentState()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        // Dizzy animation
+        // When bashed then ragdoll
+        // Countdown timer?
+        // Getup Animation
+        // Walk to new node
+        return idleState;
     }
 }

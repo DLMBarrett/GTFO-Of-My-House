@@ -46,7 +46,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: grunt4
   clip: {fileID: 8300000, guid: ee2595bc46cdbc041b1ebbb738f6c434, type: 3}
-  source: {fileID: -6675886416410327250}
+  mixGroup: {fileID: -334593404891875353, guid: 57f6e5699a9bad643add782d7e8d37a0, type: 2}
+  loop: 0
+  source: {fileID: 0}
 --- !u!82 &-6675886416410327250
 AudioSource:
   m_ObjectHideFlags: 0

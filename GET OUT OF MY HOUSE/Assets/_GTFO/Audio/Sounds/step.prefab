@@ -46,7 +46,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: step
   clip: {fileID: 8300000, guid: 84f556d99b04f884494c98d0b7fd9f7a, type: 3}
-  source: {fileID: 6291598194196656834}
+  mixGroup: {fileID: 515534089540537032, guid: 57f6e5699a9bad643add782d7e8d37a0, type: 2}
+  loop: 0
+  source: {fileID: 0}
 --- !u!82 &6291598194196656834
 AudioSource:
   m_ObjectHideFlags: 0
