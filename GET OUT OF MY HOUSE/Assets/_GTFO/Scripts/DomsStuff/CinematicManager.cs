@@ -24,6 +24,7 @@ public class CinematicManager : MonoBehaviour
     public GameObject phone;
     public GameObject flashLight;
     public GameObject arms;
+    public GameObject throwHANDS;
 
     public bool playerLocked;
     public bool isEvent1;
@@ -86,7 +87,6 @@ public class CinematicManager : MonoBehaviour
             if (playCutscene)
             {
                 PlayerEvent1_LookRot();
-                audioManage.Play("sting");
 
             }
         }
@@ -205,9 +205,18 @@ public class CinematicManager : MonoBehaviour
             //Countdown
             if (countDownTimer <= 0)
             {
+                if (alreadyPlayed == false)
+                {
+                    audioManage.Play("sting");
+
+
+                    alreadyPlayed = true;
+                }
                 direction = (spawnEnemy.transform.position - Camera.main.transform.position).normalized;
                 lookRot = Quaternion.LookRotation(direction);
-                
+
+                throwHANDS.SetActive(true);
+
                 Camera.main.transform.rotation = Quaternion.Lerp(Camera.main.transform.rotation, lookRot, 5 * Time.deltaTime);
 
                 Quaternion currentRotate = Camera.main.transform.rotation;
@@ -220,6 +229,8 @@ public class CinematicManager : MonoBehaviour
                 {
                     if (Input.GetKeyDown(KeyCode.Mouse0))
                     {
+                        throwHANDS.SetActive(false);
+
                         //Enable combat here also
                         lockPlayer.GetComponent<FPS>().canLook = true;
                         
