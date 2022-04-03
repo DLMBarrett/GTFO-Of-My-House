@@ -23,6 +23,7 @@ public class Prop : MonoBehaviour
             piece.GetComponent<Collider>().isTrigger = false;
             piece.GetComponent<Rigidbody>().isKinematic = false;
         }
-        Destroy(this);
+
+        Destroy(this.gameObject);
     }
 }
