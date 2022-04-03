@@ -94,7 +94,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3632683684982088832}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -164,6 +164,10 @@ MonoBehaviour:
   isEvent1: 1
   countDownTimer: 3
   talk: {fileID: 0}
+  skySwitch1: {fileID: -1580535799172915004, guid: d43274a316027e24386c4124888756e3, type: 3}
+  skySwitch2: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  creepySound: {fileID: 0}
+  light: {fileID: 0}
   isEvent2: 0
   blackScreen: {fileID: 0}
   playEvent3: 0
@@ -227,6 +231,10 @@ MonoBehaviour:
   isEvent1: 0
   countDownTimer: 15
   talk: {fileID: 0}
+  skySwitch1: {fileID: 0}
+  skySwitch2: {fileID: 0}
+  creepySound: {fileID: 0}
+  light: {fileID: 0}
   isEvent2: 0
   blackScreen: {fileID: 0}
   playEvent3: 0
@@ -418,6 +426,10 @@ MonoBehaviour:
   isEvent1: 0
   countDownTimer: 4
   talk: {fileID: 0}
+  skySwitch1: {fileID: 0}
+  skySwitch2: {fileID: 0}
+  creepySound: {fileID: 0}
+  light: {fileID: 0}
   isEvent2: 0
   blackScreen: {fileID: 0}
   playEvent3: 1

@@ -35,9 +35,15 @@ public class CinematicManager : MonoBehaviour
 
     public AudioSource talk;
 
+    public Material skySwitch1;
+    public Material skySwitch2;
+
+    public GameObject creepySound;
+
+
     [Header("Player Event 2: The Light")]
     
-    GameObject light;
+    public GameObject light;
     public bool isEvent2;
     private bool playEvent2;
 
@@ -57,13 +63,17 @@ public class CinematicManager : MonoBehaviour
     private void Start()
     {
         endEvent = true;
+        RenderSettings.skybox = skySwitch1;
+
+
     }
 
     private void Update() // Plays events
     {
         if(isEvent1 && endEvent)
         {
-            if(Input.GetKeyDown(KeyCode.E) && playEvent1 == true && playerLocked == true && turnOffPhoneRing.phoneRinging == true)
+
+            if (Input.GetKeyDown(KeyCode.E) && playEvent1 == true && playerLocked == true && turnOffPhoneRing.phoneRinging == true)
             {
                 PlayerEvent1();
                 turnOffPhoneRing.playEvent4 = false;
@@ -76,6 +86,8 @@ public class CinematicManager : MonoBehaviour
             if (playCutscene)
             {
                 PlayerEvent1_LookRot();
+                audioManage.Play("sting");
+
             }
         }
 
@@ -138,6 +150,7 @@ public class CinematicManager : MonoBehaviour
 
         }
 
+       
         if (countDownTimer <= 0)
         {
             audioManage.Play("glass_break");
@@ -194,7 +207,7 @@ public class CinematicManager : MonoBehaviour
             {
                 direction = (spawnEnemy.transform.position - Camera.main.transform.position).normalized;
                 lookRot = Quaternion.LookRotation(direction);
-
+                
                 Camera.main.transform.rotation = Quaternion.Lerp(Camera.main.transform.rotation, lookRot, 5 * Time.deltaTime);
 
                 Quaternion currentRotate = Camera.main.transform.rotation;
@@ -209,15 +222,27 @@ public class CinematicManager : MonoBehaviour
                     {
                         //Enable combat here also
                         lockPlayer.GetComponent<FPS>().canLook = true;
+                        
                         lockPlayer.GetComponent<FPS>().canMove = true;
-
+                        
+                        RenderSettings.skybox = skySwitch2;
+                        RenderSettings.ambientIntensity = 1;
+                        
                         lockPlayer.transform.rotation = new Quaternion(0, Camera.main.transform.rotation.y, 0, Camera.main.transform.rotation.w);
+                        
                         flashLight.gameObject.SetActive(false);
+                        
                         arms.gameObject.SetActive(true);
+                        
                         playerLocked = false;
+                        
                         endEvent = false;
 
+                        creepySound.SetActive(false);
+
                         audioManage.Play("epic_sponge");
+
+                        light.SetActive(true);
        
 
                     }
