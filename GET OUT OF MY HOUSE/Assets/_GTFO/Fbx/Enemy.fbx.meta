@@ -10,6 +10,9 @@ ModelImporter:
       74: -8465286872885558191
     second: rig|Block_Flinch
   - first:
+      74: 8761229580624509121
+    second: rig|Dizzy
+  - first:
       74: -7474419819783292521
     second: rig|Idle_Fight
   - first:
@@ -31,8 +34,11 @@ ModelImporter:
       74: -5004720012862704221
     second: rig|RightWindup
   - first:
-      74: -1041195184022588664
-    second: rig|Running
+      74: 5185008816280862103
+    second: rig|StandUp
+  - first:
+      74: -5801617217808564162
+    second: rig|Stun
   externalObjects: {}
   materials:
     materialImportMode: 2
