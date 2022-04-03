@@ -11,6 +11,7 @@ public class CinematicManager : MonoBehaviour
 
     public AudioManager audioManage;
 
+    public GameObject eInteract;
 
     [Header("Player Event 1: Phone Answer")]
 
@@ -275,10 +276,12 @@ public class CinematicManager : MonoBehaviour
     {
         if(other.tag == "Player")
         {
-            if(isEvent1)
+            eInteract.SetActive(true);
+            if (isEvent1)
             {
                 playEvent1 = true;
                 playerLocked = true;
+
             }
 
             if(isEvent2)
@@ -287,5 +290,15 @@ public class CinematicManager : MonoBehaviour
             }
         }
     }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            eInteract.SetActive(false);
+
+        }
+    }
+
+
 
 }
