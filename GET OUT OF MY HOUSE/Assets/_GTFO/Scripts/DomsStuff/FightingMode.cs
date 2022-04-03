@@ -15,7 +15,7 @@ public class FightingMode : MonoBehaviour
     private bool canDodgeR;
 
     private bool punchingLeft; //is punching L
-    private bool punchingRight; //is punching L
+    private bool punchingRight; //is punching R
 
     private bool canPunchL;
     private bool canPunchR;
