@@ -11,6 +11,7 @@ public class CinematicManager : MonoBehaviour
 
     public AudioManager audioManage;
 
+    public GameObject eInteract;
 
     [Header("Player Event 1: Phone Answer")]
 
@@ -24,6 +25,7 @@ public class CinematicManager : MonoBehaviour
     public GameObject phone;
     public GameObject flashLight;
     public GameObject arms;
+    public GameObject throwHANDS;
 
     public bool playerLocked;
     public bool isEvent1;
@@ -37,6 +39,8 @@ public class CinematicManager : MonoBehaviour
 
     public Material skySwitch1;
     public Material skySwitch2;
+
+    public GameObject creepySound;
 
 
     [Header("Player Event 2: The Light")]
@@ -84,6 +88,7 @@ public class CinematicManager : MonoBehaviour
             if (playCutscene)
             {
                 PlayerEvent1_LookRot();
+
             }
         }
 
@@ -146,6 +151,7 @@ public class CinematicManager : MonoBehaviour
 
         }
 
+       
         if (countDownTimer <= 0)
         {
             audioManage.Play("glass_break");
@@ -200,8 +206,17 @@ public class CinematicManager : MonoBehaviour
             //Countdown
             if (countDownTimer <= 0)
             {
+                if (alreadyPlayed == false)
+                {
+                    audioManage.Play("sting");
+
+
+                    alreadyPlayed = true;
+                }
                 direction = (spawnEnemy.transform.position - Camera.main.transform.position).normalized;
                 lookRot = Quaternion.LookRotation(direction);
+
+                throwHANDS.SetActive(true);
 
                 Camera.main.transform.rotation = Quaternion.Lerp(Camera.main.transform.rotation, lookRot, 5 * Time.deltaTime);
 
@@ -215,6 +230,8 @@ public class CinematicManager : MonoBehaviour
                 {
                     if (Input.GetKeyDown(KeyCode.Mouse0))
                     {
+                        throwHANDS.SetActive(false);
+
                         //Enable combat here also
                         lockPlayer.GetComponent<FPS>().canLook = true;
                         
@@ -232,6 +249,8 @@ public class CinematicManager : MonoBehaviour
                         playerLocked = false;
                         
                         endEvent = false;
+
+                        creepySound.SetActive(false);
 
                         audioManage.Play("epic_sponge");
 
@@ -257,10 +276,12 @@ public class CinematicManager : MonoBehaviour
     {
         if(other.tag == "Player")
         {
-            if(isEvent1)
+            eInteract.SetActive(true);
+            if (isEvent1)
             {
                 playEvent1 = true;
                 playerLocked = true;
+
             }
 
             if(isEvent2)
@@ -269,5 +290,15 @@ public class CinematicManager : MonoBehaviour
             }
         }
     }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            eInteract.SetActive(false);
+
+        }
+    }
+
+
 
 }
