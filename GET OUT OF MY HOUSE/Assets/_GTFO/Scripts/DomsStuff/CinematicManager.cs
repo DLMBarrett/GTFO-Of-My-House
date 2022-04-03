@@ -22,6 +22,7 @@ public class CinematicManager : MonoBehaviour
    
     public GameObject spawnEnemy;
     public GameObject phone;
+    public GameObject flashLight;
 
     public bool playerLocked;
     public bool isEvent1;
@@ -210,7 +211,7 @@ public class CinematicManager : MonoBehaviour
                         lockPlayer.GetComponent<FPS>().canMove = true;
 
                         lockPlayer.transform.rotation = new Quaternion(0, Camera.main.transform.rotation.y, 0, Camera.main.transform.rotation.w);
-
+                        flashLight.transform.position = Vector3.MoveTowards(transform.position, spawnEnemy.transform.position, 3 * Time.deltaTime);
                         playerLocked = false;
                         endEvent = false;
 
