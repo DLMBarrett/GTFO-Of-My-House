@@ -6,7 +6,7 @@ public class FightingMode : MonoBehaviour
 {
     public bool isFighting;
     public GameObject enemy;
-    public FPS playerLock;
+    public FPS playerLock; //Locks player
 
     private bool isDodgeLeft; // Use these for A.I to tell when player dodges
     private bool isDodgeRight; // Use these for A.I to tell when player dodges
