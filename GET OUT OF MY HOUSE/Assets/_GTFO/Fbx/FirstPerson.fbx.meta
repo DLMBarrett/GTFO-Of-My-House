@@ -4,9 +4,6 @@ ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable:
   - first:
-      74: -1279446339085113422
-    second: Body.004|PunchRight
-  - first:
       74: -4187070084771750883
     second: Armature.002|Idle
   - first:
