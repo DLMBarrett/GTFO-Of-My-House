@@ -7,6 +7,13 @@ public class PickUpController : MonoBehaviour
     public Rigidbody rb;
     public BoxCollider coll;
     public Transform player, itemContainer, fpsCam;
+    public Enemy enemy;
+
+    static float lerpSpeed = 0.3f;
+    static float raiseSpeed = 0.4f;
+    static float bashSpeed = 0.3f;
+    
+    
 
     public float pickUpRange;
     public float dropForwardForce, dropUpwardForce;
@@ -38,6 +45,10 @@ public class PickUpController : MonoBehaviour
 
         //Drop if equipped and "Q" is pressed
         if (equipped && Input.GetKeyDown(KeyCode.Q)) Drop();
+
+        Vector3 distanceToEnemy = player.position - enemy.transform.position;
+        //Bash if equipped and "E" is pressed and in range to enemy
+        if (equipped && distanceToEnemy.magnitude <= enemy.attackRange && Input.GetMouseButtonDown(0)) StartCoroutine(Bash());
     }
 
     private void PickUp()
@@ -69,14 +80,56 @@ public class PickUpController : MonoBehaviour
         rb.isKinematic = false;
         coll.isTrigger = false;
 
-        //Gun carries momentum of player
-        //rb.velocity = player.GetComponent<Rigidbody>().velocity;
-
         //AddForce
         rb.AddForce(fpsCam.forward * dropForwardForce, ForceMode.Impulse);
         rb.AddForce(fpsCam.up * dropUpwardForce, ForceMode.Impulse);
         //Add random rotation
         float random = Random.Range(-1f, 1f);
         rb.AddTorque(new Vector3(random, random, random) * 10);
+    }
+
+    IEnumerator Bash()
+    {
+        float timeElapsed = 0;
+        Vector3 basePos = player.position;
+        Quaternion baseRot = player.rotation;
+
+        Vector3 targetPos = enemy.attackLocation.position;
+        Quaternion targetRot = Quaternion.LookRotation((enemy.transform.position - enemy.attackLocation.position).normalized);
+
+        while (timeElapsed < lerpSpeed)
+        {
+            player.position = Vector3.Lerp(basePos, targetPos, timeElapsed / lerpSpeed);
+            player.rotation = Quaternion.Slerp(baseRot, targetRot, timeElapsed / lerpSpeed);
+            timeElapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        timeElapsed = 0;
+        basePos = transform.position;
+        targetPos = basePos;
+        targetPos.y += 1.5f;
+
+        while (timeElapsed < raiseSpeed)
+        {
+            transform.position = Vector3.Lerp(basePos, targetPos, timeElapsed / raiseSpeed);
+            timeElapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        yield return new WaitForSeconds(0.2f);
+
+        timeElapsed = 0;
+        basePos = transform.position;
+        targetPos = enemy.transform.position;
+
+        while(timeElapsed < bashSpeed)
+        {
+            transform.position = Vector3.Lerp(basePos, targetPos, timeElapsed / bashSpeed);
+            timeElapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        Drop();
     }
 }

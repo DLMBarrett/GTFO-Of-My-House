@@ -230,6 +230,10 @@ MonoBehaviour:
   player: {fileID: 121908196}
   itemContainer: {fileID: 1725528360}
   fpsCam: {fileID: 170284612}
+  enemy: {fileID: 823013675}
+  lerpSpeed: 1
+  raiseSpeed: 1
+  bashSpeed: 0.3
   pickUpRange: 3
   dropForwardForce: 2
   dropUpwardForce: 2
@@ -339,9 +343,10 @@ GameObject:
   - component: {fileID: 823013673}
   - component: {fileID: 823013672}
   - component: {fileID: 823013671}
+  - component: {fileID: 823013675}
   m_Layer: 0
-  m_Name: Capsule
-  m_TagString: Untagged
+  m_Name: Enemy
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -416,13 +421,28 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 823013670}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 3.15, y: 1.16, z: 23.31}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1415051754}
   m_Father: {fileID: 0}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!114 &823013675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 823013670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97fc47c800a7265459338e5041190501, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackRange: 3
+  attackLocation: {fileID: 1415051754}
 --- !u!1 &831291254
 GameObject:
   m_ObjectHideFlags: 0
@@ -592,6 +612,36 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fad5dc85507dde44388e33198f09a0b7, type: 3}
+--- !u!1 &1415051753
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1415051754}
+  m_Layer: 0
+  m_Name: AttackLoc
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1415051754
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1415051753}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 2.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 823013674}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1498319711
 GameObject:
   m_ObjectHideFlags: 0
@@ -646,6 +696,10 @@ MonoBehaviour:
   player: {fileID: 121908196}
   itemContainer: {fileID: 1725528360}
   fpsCam: {fileID: 170284612}
+  enemy: {fileID: 823013675}
+  lerpSpeed: 0.3
+  raiseSpeed: 0.4
+  bashSpeed: 0.3
   pickUpRange: 3
   dropForwardForce: 2
   dropUpwardForce: 2
