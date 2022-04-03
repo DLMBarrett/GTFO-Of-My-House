@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class BlockState : State
 {
+    public IdleState idleState;
     public override State RunCurrentState()
     {
-        return this;
+        return idleState;
     }
 }

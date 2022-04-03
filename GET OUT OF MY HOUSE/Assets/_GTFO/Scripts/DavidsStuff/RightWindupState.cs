@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WindupState : State
+public class RightWindupState : State
 {
-    public AttackState attackState;
+    public RightAttackState attackState;
+    public Animator enemyAnimator;
     public override State RunCurrentState()
     {
         return attackState;

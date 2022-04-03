@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RecoveryState : State
+public class RightRecoveryState : State
 {
     public StaggerState staggerState;
     public IdleState idleState;
     public bool isHit = false;
+    public Animator enemyAnimator;
     public override State RunCurrentState()
     {
         if (isHit)
