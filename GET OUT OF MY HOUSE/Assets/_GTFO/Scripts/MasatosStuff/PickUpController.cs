@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PickUpController : MonoBehaviour
 {
+    [SerializeField] AudioManager audio;
     //prop components
     public Rigidbody rb;
     public BoxCollider coll;
@@ -25,6 +26,7 @@ public class PickUpController : MonoBehaviour
 
     private void Start()
     {
+        audio.Play("ref_123");
         //Setup
         if (!equipped)
         {
