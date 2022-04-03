@@ -4,20 +4,22 @@ using UnityEngine;
 
 public class PickUpController : MonoBehaviour
 {
+    //prop components
     public Rigidbody rb;
     public BoxCollider coll;
     public Transform player, itemContainer, fpsCam;
     public Enemy enemy;
 
+    //values for the bash anim
     static float lerpSpeed = 0.3f;
     static float raiseSpeed = 0.4f;
     static float bashSpeed = 0.3f;
     
-    
-
+    //values for picking up and dropping
     public float pickUpRange;
     public float dropForwardForce, dropUpwardForce;
 
+    //bools
     public bool equipped;
     public static bool slotFull;
 
@@ -69,6 +71,7 @@ public class PickUpController : MonoBehaviour
 
     private void Drop()
     {
+        //if item is a prop, then explode
         GetComponent<Prop>()?.Explode();
         equipped = false;
         slotFull = false;
@@ -90,6 +93,7 @@ public class PickUpController : MonoBehaviour
 
     IEnumerator Bash()
     {
+        //sets up values
         float timeElapsed = 0;
         Vector3 basePos = player.position;
         Quaternion baseRot = player.rotation;
@@ -97,6 +101,7 @@ public class PickUpController : MonoBehaviour
         Vector3 targetPos = enemy.attackLocation.position;
         Quaternion targetRot = Quaternion.LookRotation((enemy.transform.position - enemy.attackLocation.position).normalized);
 
+        //lerping player to right place
         while (timeElapsed < lerpSpeed)
         {
             player.position = Vector3.Lerp(basePos, targetPos, timeElapsed / lerpSpeed);
@@ -105,11 +110,13 @@ public class PickUpController : MonoBehaviour
             yield return null;
         }
 
+        //sets up values
         timeElapsed = 0;
         basePos = transform.position;
         targetPos = basePos;
         targetPos.y += 1.5f;
 
+        //lerping object up
         while (timeElapsed < raiseSpeed)
         {
             transform.position = Vector3.Lerp(basePos, targetPos, timeElapsed / raiseSpeed);
@@ -119,10 +126,12 @@ public class PickUpController : MonoBehaviour
 
         yield return new WaitForSeconds(0.2f);
 
+        //sets up values
         timeElapsed = 0;
         basePos = transform.position;
         targetPos = enemy.transform.position;
 
+        //lerping object towards the enemy
         while(timeElapsed < bashSpeed)
         {
             transform.position = Vector3.Lerp(basePos, targetPos, timeElapsed / bashSpeed);
