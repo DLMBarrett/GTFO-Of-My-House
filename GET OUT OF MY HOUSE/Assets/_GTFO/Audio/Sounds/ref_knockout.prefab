@@ -46,7 +46,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: ref_knockout
   clip: {fileID: 8300000, guid: 8b04a2a1bfd569c49abfea0ea9316cad, type: 3}
-  source: {fileID: -3119251085082509809}
+  mixGroup: {fileID: -4535167240400903323, guid: 57f6e5699a9bad643add782d7e8d37a0, type: 2}
+  loop: 0
+  source: {fileID: 0}
 --- !u!82 &-3119251085082509809
 AudioSource:
   m_ObjectHideFlags: 0

@@ -9,17 +9,20 @@ public class CinematicManager : MonoBehaviour
 
     public GameObject lockPlayer;
 
-    public List<GameObject> stuff = new List<GameObject>();
-    
+    public AudioManager audioManage;
 
-    [Header("Player Event 1: Phone")]
-    
+
+    [Header("Player Event 1: Phone Answer")]
+
+    public CinematicManager turnOffPhoneRing;
+
     private Vector3 direction;
     
     private Quaternion lookRot;
    
     public GameObject spawnEnemy;
     public GameObject phone;
+    public GameObject flashLight;
 
     public bool playerLocked;
     public bool isEvent1;
@@ -37,6 +40,19 @@ public class CinematicManager : MonoBehaviour
     public bool isEvent2;
     private bool playEvent2;
 
+    [Header("Player Event 3: Wake Up")]
+    public GameObject blackScreen;
+    public bool playEvent3;
+    public bool isEvent3;
+
+    [Header("Player Event 4: Phone Ring")]
+    public bool playEvent4;
+    public bool isEvent4;
+    public bool phoneRinging;
+    private bool alreadyPlayed;
+    public AudioSource phoneRing;
+
+
     private void Start()
     {
         endEvent = true;
@@ -46,9 +62,13 @@ public class CinematicManager : MonoBehaviour
     {
         if(isEvent1 && endEvent)
         {
-            if(Input.GetKeyDown(KeyCode.E) && playEvent1 == true && playerLocked == true)
+            if(Input.GetKeyDown(KeyCode.E) && playEvent1 == true && playerLocked == true && turnOffPhoneRing.phoneRinging == true)
             {
                 PlayerEvent1();
+                turnOffPhoneRing.playEvent4 = false;
+                turnOffPhoneRing.phoneRing.Stop();
+                audioManage.Play("phone_intro");
+
             }
 
 
@@ -65,6 +85,24 @@ public class CinematicManager : MonoBehaviour
                 PlayerEvent2();
             }
         }
+
+        if (isEvent3)
+        {
+            if (playEvent3 == true)
+            {
+                PlayerEvent3();
+            }
+        }
+
+        if (isEvent4)
+        {
+            if (playEvent4 == true)
+            {
+                PlayerEvent4();
+               
+            }
+        }
+
 
     }
 
@@ -86,6 +124,51 @@ public class CinematicManager : MonoBehaviour
         light.SetActive(true);
         playEvent2 = false;
         //Turn on light switch option
+    }
+
+    public void PlayerEvent3()
+    {
+        lockPlayer.GetComponent<FPS>().canLook = false;
+        lockPlayer.GetComponent<FPS>().canMove = false;
+
+        if (countDownTimer >= 0)
+        {
+            countDownTimer -= Time.deltaTime;
+
+        }
+
+        if (countDownTimer <= 0)
+        {
+            audioManage.Play("glass_break");
+            blackScreen.SetActive(false);
+            lockPlayer.GetComponent<FPS>().canLook = true;
+            lockPlayer.GetComponent<FPS>().canMove = true;
+            playEvent3 = false;
+
+        }
+    }
+
+    public void PlayerEvent4()
+    {
+        if (countDownTimer >= 0)
+        {
+            
+            countDownTimer -= Time.deltaTime;
+        }
+
+        if (countDownTimer <= 0)
+        {
+            phoneRinging = true;
+            if(alreadyPlayed == false)
+            {
+                phoneRing.Play();
+
+                alreadyPlayed = true;
+            }
+
+
+
+        }
     }
 
     //Look rotation (PLAYEREVENT1)
@@ -117,7 +200,7 @@ public class CinematicManager : MonoBehaviour
                 //Raycast
 
                 RaycastHit hit;
-                Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, 5);
+                Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, 15);
 
                 if (hit.transform.name == "Enemy")
                 {
@@ -128,9 +211,11 @@ public class CinematicManager : MonoBehaviour
                         lockPlayer.GetComponent<FPS>().canMove = true;
 
                         lockPlayer.transform.rotation = new Quaternion(0, Camera.main.transform.rotation.y, 0, Camera.main.transform.rotation.w);
-
+                        flashLight.transform.position = Vector3.MoveTowards(transform.position, spawnEnemy.transform.position, 3 * Time.deltaTime);
                         playerLocked = false;
                         endEvent = false;
+
+                        audioManage.Play("epic_sponge");
        
 
                     }

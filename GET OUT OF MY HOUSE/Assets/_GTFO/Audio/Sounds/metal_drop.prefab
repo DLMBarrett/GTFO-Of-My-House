@@ -46,7 +46,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: metal_drop
   clip: {fileID: 8300000, guid: 8b5cb100dd8404847814bebce1e489ba, type: 3}
-  source: {fileID: 5288426740320613204}
+  mixGroup: {fileID: 515534089540537032, guid: 57f6e5699a9bad643add782d7e8d37a0, type: 2}
+  loop: 0
+  source: {fileID: 0}
 --- !u!82 &5288426740320613204
 AudioSource:
   m_ObjectHideFlags: 0

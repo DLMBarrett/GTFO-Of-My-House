@@ -46,7 +46,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: ref_fight
   clip: {fileID: 8300000, guid: b0b7eb6604f67a44ab56392312273e22, type: 3}
-  source: {fileID: -4165864838100068362}
+  mixGroup: {fileID: -4535167240400903323, guid: 57f6e5699a9bad643add782d7e8d37a0, type: 2}
+  loop: 0
+  source: {fileID: 0}
 --- !u!82 &-4165864838100068362
 AudioSource:
   m_ObjectHideFlags: 0

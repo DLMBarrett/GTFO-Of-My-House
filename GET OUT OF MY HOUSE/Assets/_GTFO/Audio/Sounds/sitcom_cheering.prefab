@@ -46,7 +46,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: sitcom_cheering
   clip: {fileID: 8300000, guid: 14c394dfcdcd58449a0f8f934dcf0e61, type: 3}
-  source: {fileID: 2769974445393947282}
+  mixGroup: {fileID: 7856529208192776299, guid: 57f6e5699a9bad643add782d7e8d37a0, type: 2}
+  loop: 0
+  source: {fileID: 0}
 --- !u!82 &2769974445393947282
 AudioSource:
   m_ObjectHideFlags: 0
