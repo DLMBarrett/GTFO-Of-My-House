@@ -232,7 +232,9 @@ public class CinematicManager : MonoBehaviour
                 if (hit.transform.name == "Enemy")
                 {
                     if (Input.GetKeyDown(KeyCode.Mouse0))
-                    {   
+                    {
+                        lockPlayer.transform.position =  new Vector3(spawnEnemy.transform.position.x, spawnEnemy.transform.position.y, spawnEnemy.transform.position.z);
+
                         throwHANDS.SetActive(false);
 
                         spawnEnemy.GetComponent<StateManager>().startMachine = true;
