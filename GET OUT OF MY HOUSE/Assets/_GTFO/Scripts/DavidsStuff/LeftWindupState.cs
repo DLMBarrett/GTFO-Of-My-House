@@ -6,6 +6,7 @@ public class LeftWindupState : State
 {
     public RightAttackState attackState;
     public Animator enemyAnimator;
+    public float animTime = 0.625f;
     public override State RunCurrentState()
     {
         enemyAnimator.ResetTrigger("startLeft");
@@ -14,4 +15,9 @@ public class LeftWindupState : State
     }
     public override void Hit()
     {}
+
+    IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(animTime);
+    }
 }
