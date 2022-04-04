@@ -5,10 +5,10 @@ using UnityEngine;
 public class StateManager : MonoBehaviour
 {
     public State currState;
-    // Update is called once per frame
-    void Update()
+    public IdleState idleState;
+    private void Start()
     {
-        RunStateMachine();
+        currState = idleState;
     }
 
     private void RunStateMachine()
