@@ -226,15 +226,19 @@ public class CinematicManager : MonoBehaviour
                 spawnEnemy.SetActive(true);
 
                 RaycastHit hit;
-                Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, 15);
+                Vector3 enemyNewForward = spawnEnemy.transform.position - Camera.main.transform.position;
+                Physics.Raycast(Camera.main.transform.position, enemyNewForward, out hit, 15);
 
                 if (hit.transform.name == "Enemy")
                 {
                     if (Input.GetKeyDown(KeyCode.Mouse0))
-                    {
+                    {   
                         throwHANDS.SetActive(false);
 
+                        spawnEnemy.GetComponent<StateManager>().startMachine = true;
                         //Enable combat here also
+                        lockPlayer.GetComponent<FightingMode>().isFighting = true;
+                       
                         lockPlayer.GetComponent<FPS>().canLook = true;
                         
                         lockPlayer.GetComponent<FPS>().canMove = true;

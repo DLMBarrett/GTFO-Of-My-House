@@ -7,6 +7,7 @@ public class FightingMode : MonoBehaviour
     public Animator startAnim;
     public bool isFighting;
     public StateManager enemy;
+    public Transform enemyLookAt;
     public FPS playerLock; //Locks player
 
     float leanLeftAmount;
@@ -48,6 +49,8 @@ public class FightingMode : MonoBehaviour
     {
         if (isFighting)
         {
+            Vector3 lookAtEnemy = enemyLookAt.transform.position - Camera.main.transform.position;
+            Camera.main.transform.LookAt(enemyLookAt.transform.position);
             playerLock.canLook = false;
             playerLock.canMove = false;
 
@@ -58,7 +61,7 @@ public class FightingMode : MonoBehaviour
             if (isDodgeLeft && countDownTimer >= 0)
             {
                 countDownTimer -= Time.deltaTime;
-                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(new Vector3(0, 0, 10)), 10 * Time.deltaTime);
+                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(new Vector3(transform.rotation.x, transform.rotation.y, 10)), 10 * Time.deltaTime);
 
 
                 if (countDownTimer <= 0)
@@ -77,7 +80,7 @@ public class FightingMode : MonoBehaviour
             if (isDodgeRight && countDownTimer >= 0)
             {
                 countDownTimer -= Time.deltaTime;
-                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(new Vector3(0, 0, -10)), 10 * Time.deltaTime);
+                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(new Vector3(transform.rotation.x, transform.rotation.y, -10)), 10 * Time.deltaTime);
 
                 if (countDownTimer <= 0)
                 {
@@ -229,7 +232,7 @@ public class FightingMode : MonoBehaviour
 
         while (timeElapsed < lerpDur)
         {
-            transform.rotation = transform.rotation = Quaternion.Slerp(transform.rotation, savedRot, 10 * Time.deltaTime);
+            transform.rotation  = Quaternion.Slerp(transform.rotation, savedRot, 10 * Time.deltaTime);
 
             timeElapsed += Time.deltaTime;
             yield return null;
