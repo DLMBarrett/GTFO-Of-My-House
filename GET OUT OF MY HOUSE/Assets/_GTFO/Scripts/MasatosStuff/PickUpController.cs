@@ -11,6 +11,7 @@ public class PickUpController : MonoBehaviour
     public Transform player, itemContainer, fpsCam;
     public Enemy enemy;
     public GameObject text;
+    public KnockoutState knockoutState;
 
     //values for the bash anim
     static float lerpSpeed = 0.3f;
@@ -147,6 +148,7 @@ public class PickUpController : MonoBehaviour
             yield return null;
         }
 
+        knockoutState.Hit();
         Drop();
     }
 }
