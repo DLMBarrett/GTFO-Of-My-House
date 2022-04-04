@@ -1717,6 +1717,10 @@ PrefabInstance:
       propertyPath: itemContainer
       value: 
       objectReference: {fileID: 1092653928}
+    - target: {fileID: 7693374082613546803, guid: fc5eaf8190a493c40897a0c92867f763, type: 3}
+      propertyPath: knockoutState
+      value: 
+      objectReference: {fileID: 1891036352}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc5eaf8190a493c40897a0c92867f763, type: 3}
 --- !u!4 &448425667 stripped
@@ -2624,6 +2628,10 @@ PrefabInstance:
       propertyPath: itemContainer
       value: 
       objectReference: {fileID: 1092653928}
+    - target: {fileID: 3308473090555873721, guid: 8f2b640e56e45e24480c43b476bd5177, type: 3}
+      propertyPath: knockoutState
+      value: 
+      objectReference: {fileID: 1891036352}
     - target: {fileID: 7041738442646510222, guid: 8f2b640e56e45e24480c43b476bd5177, type: 3}
       propertyPath: m_Name
       value: Trash
@@ -3503,6 +3511,10 @@ PrefabInstance:
       propertyPath: itemContainer
       value: 
       objectReference: {fileID: 1092653928}
+    - target: {fileID: 7112427427973815412, guid: 94b81d9e64d59c44db030fd8e982a98e, type: 3}
+      propertyPath: knockoutState
+      value: 
+      objectReference: {fileID: 1891036352}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 94b81d9e64d59c44db030fd8e982a98e, type: 3}
 --- !u!1 &1052359610
@@ -5277,6 +5289,10 @@ PrefabInstance:
       propertyPath: itemContainer
       value: 
       objectReference: {fileID: 1092653928}
+    - target: {fileID: 1397502042243873362, guid: 4f2e982b99ffd71449667a422c5aed12, type: 3}
+      propertyPath: knockoutState
+      value: 
+      objectReference: {fileID: 1891036352}
     - target: {fileID: 2596481676036750044, guid: 4f2e982b99ffd71449667a422c5aed12, type: 3}
       propertyPath: m_RootOrder
       value: 21
@@ -9614,6 +9630,17 @@ PrefabInstance:
       objectReference: {fileID: 1323683818}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8a41d97b4780344ab1bd91c81d73704, type: 3}
+--- !u!114 &1891036352 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8635338120541508733, guid: f8a41d97b4780344ab1bd91c81d73704, type: 3}
+  m_PrefabInstance: {fileID: 1891036351}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1954936321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c071bcdc292fa584abc1b3704c766a09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1906773674
 GameObject:
   m_ObjectHideFlags: 0
@@ -10074,6 +10101,10 @@ PrefabInstance:
       propertyPath: itemContainer
       value: 
       objectReference: {fileID: 1092653928}
+    - target: {fileID: 1523090653618116651, guid: 409730f3a3b8c8e4c9290e2212000e9b, type: 3}
+      propertyPath: knockoutState
+      value: 
+      objectReference: {fileID: 1891036352}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 409730f3a3b8c8e4c9290e2212000e9b, type: 3}
 --- !u!1001 &3326397330905655735
