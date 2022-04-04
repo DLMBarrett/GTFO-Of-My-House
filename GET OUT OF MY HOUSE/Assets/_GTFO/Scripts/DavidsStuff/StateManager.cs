@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class StateManager : MonoBehaviour
 {
-    State currState;
-    // Update is called once per frame
-    void Update()
+    public State currState;
+    public IdleState idleState;
+    private void Start()
     {
-        RunStateMachine();
+        currState = idleState;
     }
 
     private void RunStateMachine()

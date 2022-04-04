@@ -223,6 +223,8 @@ public class CinematicManager : MonoBehaviour
                 Quaternion currentRotate = Camera.main.transform.rotation;
                 //Raycast
 
+                spawnEnemy.SetActive(true);
+
                 RaycastHit hit;
                 Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, 15);
 

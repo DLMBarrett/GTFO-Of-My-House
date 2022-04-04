@@ -5,12 +5,21 @@ using UnityEngine;
 public class LeftAttackState : State
 {
     public LeftRecoveryState recoveryState;
-    public GameObject player;
+    public FightingMode player;
     public Animator enemyAnimator;
     public override State RunCurrentState()
     {
+        enemyAnimator.ResetTrigger("startAttack");
+
         // Damage the player
-        //player.damage();
-        return this;
+        // Damage the player
+        if (!player.isDodgeRight)
+        {
+            // Damage player
+        }
+        enemyAnimator.SetTrigger("startRecovery");
+        return recoveryState;
     }
+    public override void Hit()
+    { }
 }

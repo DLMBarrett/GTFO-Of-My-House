@@ -8,6 +8,10 @@ public class LeftWindupState : State
     public Animator enemyAnimator;
     public override State RunCurrentState()
     {
+        enemyAnimator.ResetTrigger("startLeft");
+        enemyAnimator.SetTrigger("startAttack");
         return attackState;
     }
+    public override void Hit()
+    {}
 }

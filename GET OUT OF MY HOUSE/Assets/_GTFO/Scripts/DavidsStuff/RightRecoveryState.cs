@@ -10,10 +10,17 @@ public class RightRecoveryState : State
     public Animator enemyAnimator;
     public override State RunCurrentState()
     {
+        enemyAnimator.ResetTrigger("startAttack");
         if (isHit)
         {
+            enemyAnimator.SetTrigger("startStun");
             return staggerState;
         }
+        enemyAnimator.SetTrigger("isIdle");
         return idleState;
+    }
+    public override void Hit()
+    {
+        isHit = true;
     }
 }

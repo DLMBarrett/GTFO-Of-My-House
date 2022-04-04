@@ -13,27 +13,38 @@ public class IdleState : State
     public Animator enemyAnimator;
     private float chosenTime;
     private float timer = 0.0f;
+
+    public override void Hit()
+    {
+        isHit = true;
+    }
+
     public override State RunCurrentState()
     {
+        enemyAnimator.ResetTrigger("isIdle");
         chosenTime = Random.Range(minTime, maxTime);
         Wait();
         if (isHit)
         {
             if (Random.value < 0.5f)
             {
+                enemyAnimator.SetBool("isBlocking", true);
                 return blockState;
             }
             else
             {
+                enemyAnimator.SetTrigger("startStun");
                 return staggerState;
             }
         }
         if (Random.value < 0.5f)
         {
+            enemyAnimator.SetTrigger("startRight");
             return rightWindupState;
         }
         else
         {
+            enemyAnimator.SetTrigger("startLeft");
             return leftWindupState;
         }
     }

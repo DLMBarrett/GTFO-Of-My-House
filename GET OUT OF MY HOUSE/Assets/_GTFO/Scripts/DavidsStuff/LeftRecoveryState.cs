@@ -10,10 +10,17 @@ public class LeftRecoveryState : State
     public Animator enemyAnimator;
     public override State RunCurrentState()
     {
+        enemyAnimator.ResetTrigger("startRecovery");
         if (isHit)
         {
+            enemyAnimator.SetTrigger("startStun");
             return staggerState;
         }
+        enemyAnimator.SetTrigger("isIdle");
         return idleState;
+    }
+    public override void Hit()
+    {
+        isHit = true;
     }
 }
