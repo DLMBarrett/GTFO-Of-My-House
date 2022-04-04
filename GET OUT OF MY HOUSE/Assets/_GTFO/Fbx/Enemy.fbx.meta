@@ -34,6 +34,9 @@ ModelImporter:
       74: -5004720012862704221
     second: rig|RightWindup
   - first:
+      74: -5480419611278045171
+    second: rig|Run
+  - first:
       74: 5185008816280862103
     second: rig|StandUp
   - first:
