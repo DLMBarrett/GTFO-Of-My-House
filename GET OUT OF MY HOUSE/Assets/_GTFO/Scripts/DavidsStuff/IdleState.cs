@@ -11,8 +11,8 @@ public class IdleState : State
     public LeftWindupState leftWindupState;
     public bool isHit = false;
     public Animator enemyAnimator;
-    private float chosenTime;
-    private float timer = 0.0f;
+    [SerializeField] float chosenTime;
+    [SerializeField] float timer = 0.0f;
 
     public override void Hit()
     {

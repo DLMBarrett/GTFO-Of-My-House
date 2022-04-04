@@ -6,11 +6,16 @@ public class StateManager : MonoBehaviour
 {
     public State currState;
     public IdleState idleState;
+    public bool startMachine;
     private void Start()
     {
         currState = idleState;
     }
-
+    private void Update()
+    {
+        if (startMachine)
+            RunStateMachine();
+    }
     private void RunStateMachine()
     {
         State nextState = currState?.RunCurrentState();
